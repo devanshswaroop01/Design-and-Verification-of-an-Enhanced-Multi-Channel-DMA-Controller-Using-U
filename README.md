@@ -366,7 +366,7 @@ make clean_all      # remove build outputs + logs + waveforms
 Verification Architecture
 
 ```text
-                                                  ┌─────────────────────────────┐
+                         ┌─────────────────────────────┐
                          │          dma_tb_top         │
                          │                             │
                          │ CLK / RESET / dma_if / DUT  │
