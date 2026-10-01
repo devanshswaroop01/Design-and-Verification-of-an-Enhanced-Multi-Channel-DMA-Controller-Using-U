@@ -160,3 +160,22 @@ class cpu_driver extends uvm_driver #(cpu_seq_item);
 endclass
 
 `endif // CPU_DRIVER_SV
+
+//CPU Driver FSM (per transaction)
+
+   // IDLE
+   //  │ get_next_item
+   //  ▼
+   // SETUP ─── drive CS=0, addr, dir, data
+   //  │
+   //  │ posedge CLK
+   //  ▼
+   // ACCESS ── DUT samples (read) / captures (write)
+   //  │
+   //  │ posedge CLK
+   //  ▼
+   // RELEASE ─ tri-state all bus signals
+   //  │
+   //  │ posedge CLK
+   //  ▼
+   // IDLE
